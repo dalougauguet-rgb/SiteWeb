@@ -7,24 +7,19 @@
     <title>Les Roues de l'Espoir</title> 
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <style>
-        * {
-            box-sizing: border-box;
-        }
+        * { box-sizing: border-box; margin:0; padding:0; }
 
         html, body {
-            margin: 0;
-            padding: 0;
             height: 100%;
         }
 
         body {
             font-family: 'Bebas Neue', sans-serif;
-            letter-spacing: 1px; 
             display: flex;
             flex-direction: column;
             height: 100vh;
             overflow: hidden;
-            background-color: #f4eadf; /* couleur de fond uniforme */
+            background-color: #f4eadf;
         }
 
         header {
@@ -48,25 +43,16 @@
             margin: 0;
         }
 
-        /* Logo */
-        .logo img {
-            height: 70px;
-            width: auto;
-        }
+        .logo img { height: 70px; width:auto; }
 
-        /* Menu principal */
         .menu {
             display: flex;
             list-style: none;
             margin-left: auto;
             gap: 20px;
-            padding: 0;
         }
 
-        .menu li {
-            position: relative; /* nécessaire pour le dropdown */
-        }
-
+        .menu li { position: relative; }
         .menu a {
             text-decoration: none;
             color: #5a3a28;
@@ -76,12 +62,8 @@
             text-transform: uppercase;
             letter-spacing: 1.5px;
         }
+        .menu a:hover { color: #626F54; }
 
-        .menu a:hover {
-            color: #626F54;
-        }
-
-        /* Dropdown menu */
         .dropdown-menu {
             display: none;
             position: absolute;
@@ -95,39 +77,16 @@
             min-width: 180px;
         }
 
-        .dropdown-menu li {
-            padding: 0;
-        }
+        .dropdown-menu li { padding: 0; }
+        .dropdown-menu a { display: block; padding: 8px 20px; font-weight: normal; color: #5a3a28; font-size: 16px; letter-spacing: 1px; }
+        .dropdown:hover .dropdown-menu { display: block; }
 
-        .dropdown-menu a {
-            display: block;
-            padding: 8px 20px;
-            font-weight: normal;
-            color: #5a3a28;
-            font-size: 16px;
-            letter-spacing: 1px;
-        }
+        main { flex:1; min-height:0; }
+        iframe { width:100%; height:100%; border:none; min-height:0; }
 
-        .dropdown:hover .dropdown-menu {
-            display: block;
-        }
-
-        main {
-            flex: 1;
-            min-height: 0;
-            width: 100%;
-            overflow: hidden;
-        }
-
-        iframe {
-            width: 100%;
-            border: none;
-            min-height: 100vh;
-        }
-
-        /* BOUTON HAMBURGER ET MENU MOBILE */
+        /* Hamburger mobile */
         .hamburger {
-            display: none; /* caché sur desktop */
+            display: none;
             flex-direction: column;
             gap: 5px;
             padding: 10px;
@@ -137,53 +96,28 @@
             top: 15px;
             right: 20px;
         }
-        .hamburger div {
-            width: 25px;
-            height: 3px;
-            background-color: #5a3a28;
-        }
+        .hamburger div { width: 25px; height: 3px; background-color: #5a3a28; }
 
         .mobile-menu {
             position: fixed;
-            top: 0;
-            right: -100%; /* caché par défaut */
-            width: 50%; /* moitié de page */
+            top:0; right:-100%;
+            width: 50%;
             height: 100%;
-            background: rgba(244, 234, 223, 0.95); /* léger transparent */
-            display: flex;
-            flex-direction: column;
+            background: rgba(244,234,223,0.95);
+            display:flex; flex-direction: column;
             padding: 50px 20px;
-            gap: 20px;
+            gap:20px;
             transition: right 0.3s ease;
-            z-index: 1000;
+            z-index:1000;
         }
+        .mobile-menu a { text-decoration:none; font-weight:bold; color:#5a3a28; font-size:18px; }
 
-        .mobile-menu a {
-            text-decoration: none;
-            font-weight: bold;
-            color: #5a3a28;
-            font-size: 18px;
-        }
-
-        /* 📱 RESPONSIVE */
-        @media (max-width: 768px) {
-            .hamburger {
-                display: flex;
-            }
-
-            .navbar {
-                display: flex; /* juste pour afficher le logo */
-                justify-content: flex-start;
-            }
-
-            /* cacher le menu desktop sur mobile */
-            .menu {
-                display: none;
-            }
-
-            .logo img {
-                height: 55px;
-            }
+        /* Responsive */
+        @media (max-width:768px){
+            .hamburger{display:flex;}
+            .navbar{justify-content:flex-start;}
+            .menu{display:none;}
+            .logo img{height:55px;}
         }
     </style>
 </head> 
@@ -207,21 +141,18 @@
                     <a href="#">Nos aventures🔻</a>
                     <ul class="dropdown-menu">
                         <li><a href="Brest.html" target="onglet">Orléans/Brest</a></li>
-                        <li><a href="soon.html" target="onglet">soon....</a></li>
+                        <li><a href="soon.html" target="onglet">Soon...</a></li>
                     </ul>
                 </li>
                 <li><a href="blog.html" target="onglet">Blog</a></li>
                 <li><a href="contact.html" target="onglet">Contact</a></li>
                 <li class="connect"><a href="#" target="onglet">Connexion</a></li>
-            </ul>  
+            </ul>
         </nav>
-    </header> 
+    </header>
 
-    <!-- BOUTON HAMBURGER ET MENU MOBILE -->
     <div class="hamburger" onclick="toggleMenu()">
-        <div></div>
-        <div></div>
-        <div></div>
+        <div></div><div></div><div></div>
     </div>
 
     <div class="mobile-menu" id="mobileMenu">
@@ -237,37 +168,15 @@
     </div>
 
     <main>
-        <iframe
-            id="iframeOnglet"
-            name="onglet"
-            src="home.html">
-        </iframe>
+        <iframe name="onglet" src="home.html"></iframe>
     </main>
 
     <script>
-        // Menu mobile
-        function toggleMenu() {
+        function toggleMenu(){
             const menu = document.getElementById('mobileMenu');
-            if(menu.style.right === "0px") {
-                menu.style.right = "-100%";
-            } else {
-                menu.style.right = "0px";
-            }
+            menu.style.right = (menu.style.right==="0px") ? "-100%" : "0px";
         }
-
-        // Resize dynamique de l'iframe
-        const iframe = document.getElementById('iframeOnglet');
-        function resizeIframe() {
-            try {
-                iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
-            } catch (e) {
-                iframe.style.height = "100vh"; // fallback si cross-origin
-            }
-        }
-        iframe.addEventListener('load', resizeIframe);
     </script>
 </body>
 </html>
-
-
 
