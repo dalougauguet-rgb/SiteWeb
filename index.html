@@ -24,6 +24,7 @@
             flex-direction: column;
             height: 100vh;
             overflow: hidden;
+            background-color: #f4eadf; /* couleur de fond uniforme */
         }
 
         header {
@@ -113,7 +114,7 @@
 
         main {
             flex: 1;
-            min-height: 0; /* très important pour mobile */
+            min-height: 0;
         }
 
         iframe {
@@ -171,7 +172,17 @@
             }
 
             .navbar {
-                display: none; /* cacher le menu desktop */
+                display: flex; /* juste pour afficher le logo */
+                justify-content: flex-start;
+            }
+
+            /* cacher le menu desktop sur mobile */
+            .menu {
+                display: none;
+            }
+
+            .logo img {
+                height: 55px;
             }
         }
     </style>
@@ -244,5 +255,4 @@
     </script>
 </body>
 </html>
-
 
