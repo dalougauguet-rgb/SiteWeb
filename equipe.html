@@ -43,13 +43,26 @@ body {
     align-items: center;
     gap: 20px;
     flex-wrap: wrap;
+    transition: transform 0.5s ease; /* pour un effet smooth */
 }
 
-.membre-gauche { flex-direction: row;
-                transform: translateX(-100px);}
-.membre-droite { flex-direction: row-reverse;
-               transform: translateX(100px);}
-.centre { flex-direction: row; justify-content:center; text-align:center; }
+/* Décalage horizontal */
+.membre-gauche { 
+    flex-direction: row; /* image à gauche, texte à droite */
+    justify-content: flex-start;
+    transform: translateX(-40px);
+}
+
+.membre-droite { 
+    flex-direction: row-reverse; /* image à droite, texte à gauche */
+    justify-content: flex-end;
+    transform: translateX(40px);
+}
+.centre { 
+    flex-direction: row; 
+    justify-content:center; 
+    text-align:center; 
+}
 
 .photo {
     width: 180px;
@@ -101,11 +114,14 @@ body {
 
 @media (max-width: 768px) {
     .membre-gauche, .membre-droite, .centre {
-        flex-direction: column;
+        flex-direction: column; /* tout devient vertical */
         text-align: center;
+        transform: translateX(0); /* on annule le décalage */
         padding: 15px;
         gap: 15px;
     }
+
+
     .photo { width:120px; height:120px; }
     .content h2 { font-size:26px; }
     .content h3 { font-size:15px; }
@@ -278,6 +294,7 @@ body {
 </div>
 </body>
 </html>
+
 
 
 
