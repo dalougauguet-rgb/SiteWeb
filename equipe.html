@@ -5,21 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Notre Équipe – Les Roues de l'Espoir</title>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
-    
-</head>
-
-<body>
     <style>
         * {
             box-sizing: border-box;
         }
+
         body {
             margin: 0;
             padding: 0;
-            height: 100%;
             background-color: #6b4a3a; /* marron du fond */
             font-family: 'Montserrat', sans-serif;
-            min-height: 100vh;
         }
 
         .titre {
@@ -49,181 +44,83 @@
             gap: 30px;
         }
 
-
-        .membre-gauche {
-            flex-direction: row;
-            transform: translateX(-100px);
-        }
-
-        .membre-droite {
-            flex-direction: row-reverse;
-            transform: translateX(100px);
-        }
+        .membre-gauche { flex-direction: row; transform: translateX(-100px); }
+        .membre-droite { flex-direction: row-reverse; transform: translateX(100px); }
+        .centre { flex-direction: row; }
 
         .photo {
             width: 180px;
             height: 180px;
-            background-color: #5bc0eb; /* bleu du croquis */
+            background-color: #5bc0eb;
             border-radius: 10px;
             overflow: hidden;
             flex-shrink: 0;
         }
 
-        .photo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+        .photo img { width: 100%; height: 100%; object-fit: cover; }
 
-        .content h2 {
-            margin: 0;
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 36px;
-            letter-spacing: 1px;
-            color: #5a3b2e;
-        }
-
-        .content h3 {
-            margin: 5px 0 15px;
-            font-weight: 600; /* Montserrat semi-bold */
-            font-size: 18px;
-            color: #5a3b2e;
-        }
-
-        .content p {
-            margin: 0;
-            font-weight: 300; /* Montserrat Light */
-            font-size: 16px;
-            line-height: 1.6;
-            color: #4a4a4a;
-        }
-
-        .centre p{
-            margin: 5px 0 15px;
-            font-weight: 600; /* Montserrat semi-bold */
-            font-size: 20px;
-            color: #5a3b2e;
-
-        }
-
-        .centre {
-            flex-direction: row;
-        }
+        .content h2 { margin: 0; font-family: 'Bebas Neue', sans-serif; font-size: 36px; letter-spacing: 1px; color: #5a3b2e; }
+        .content h3 { margin: 5px 0 15px; font-weight: 600; font-size: 18px; color: #5a3b2e; }
+        .content p { margin: 0; font-weight: 300; font-size: 16px; line-height: 1.6; color: #4a4a4a; }
+        .centre p { margin: 5px 0 15px; font-weight: 600; font-size: 20px; color: #5a3b2e; }
 
         /* 📱 RESPONSIVE */
-    
         @media (max-width: 1024px) {
-            .titre {
-                font-size: 50px;
-            }
-            .membre-gauche, .membre-droite, .centre {
-                max-width: 80%;
-                padding: 25px;
-            }
-            .photo {
-                width: 150px;
-                height: 150px;
-            }
-            .content h2 {
-                font-size: 30px;
-            }
-            .content h3 {
-                font-size: 16px;
-            }
-            .content p {
-                font-size: 15px;
-            }
-            .centre p {
-                font-size: 18px;
-            }
+            .titre { font-size: 50px; }
+            .membre-gauche, .membre-droite, .centre { max-width: 80%; padding: 25px; }
+            .photo { width: 150px; height: 150px; }
+            .content h2 { font-size: 30px; }
+            .content h3 { font-size: 16px; }
+            .content p { font-size: 15px; }
+            .centre p { font-size: 18px; }
         }
 
         @media (max-width: 768px) {
-            .membre-gauche,
-            .membre-droite {
-                flex-direction: column;
-                text-align: center;
-                transform: none;
+            html, body {
+                height: 100%; /* prend toute la hauteur de l'iframe */
             }
 
-            .photo {
-                width: 120px;
-                height: 120px;
+            main, .equipe {
+                min-height: 100%; /* contenu remplit tout l'espace */
             }
-            .content h2 {
-                font-size: 26px;
-            }
-            .content h3 {
-                font-size: 15px;
-            }
-            .content p {
-                font-size: 14px;
-            }
-            .centre p {
-                font-size: 16px;
-            }
+
+            .membre-gauche, .membre-droite { flex-direction: column; text-align: center; transform: none; }
+            .photo { width: 120px; height: 120px; }
+            .content h2 { font-size: 26px; }
+            .content h3 { font-size: 15px; }
+            .content p { font-size: 14px; }
+            .centre p { font-size: 16px; }
         }
 
         @media (max-width: 480px) {
-            .titre {
-                font-size: 36px;
-                margin: 40px 15px 40px 15px;
-            }
-            .photo {
-                width: 100px;
-                height: 100px;
-            }
-            .content h2 {
-                font-size: 22px;
-            }
-            .content h3 {
-                font-size: 14px;
-            }
-            .content p {
-                font-size: 13px;
-            }
-            .centre p {
-                font-size: 14px;
-            }
+            .titre { font-size: 36px; margin: 40px 15px 40px 15px; }
+            .photo { width: 100px; height: 100px; }
+            .content h2 { font-size: 22px; }
+            .content h3 { font-size: 14px; }
+            .content p { font-size: 13px; }
+            .centre p { font-size: 14px; }
         }
-        
     </style>
-
+</head>
+<body>
     <h1 class="titre">Notre équipe</h1>
-
     <div class="equipe">
-
         <div class="membre-gauche">
-            <div class="photo">
-                <img src="images/nathan.jpg" alt="Nathan">
-            </div>
+            <div class="photo"><img src="images/nathan.jpg" alt="Nathan"></div>
             <div class="content">
                 <h2>Nathan</h2>
-                <h3>Président <span>(Les Roues de l’Espoir)</span></h3>
-                <p>
-                    "Moi c'est Nathan Troussard, je suis lycéen en terminale et triathlète à mes heures perdues.
-                    Le vélo est plus qu'un sport pour moi, c'est un moyen d'être libre.
-                    Je m’occupe principalement de la recherche de financements pour le projet."
-                </p>
+                <h3>Président</h3>
+                <p>Moi c'est Nathan Troussard, je suis lycéen en terminale et triathlète à mes heures perdues. Le vélo est plus qu'un sport pour moi, c'est un moyen d'être libre. Je m’occupe principalement de la recherche de financements pour le projet.</p>
             </div>
         </div>
-
         <div class="membre-droite">
             <div class="content">
                 <h2>Oscar</h2>
                 <h3>Secrétaire</h3>
-                <p>
-                    "Moi je m'appelle Oscar et ce que j'aime avant tout c'est créer des souvenirs.
-                    Ce projet est né de notre envie de repousser nos limites ensemble
-                    et de vivre une aventure humaine forte."
-                </p>
+                <p>Moi je m'appelle Oscar et ce que j'aime avant tout c'est créer des souvenirs. Ce projet est né de notre envie de repousser nos limites ensemble et de vivre une aventure humaine forte.</p>
             </div>
-            <div class="photo">
-                <img src="images/oscar.jpg" alt="Oscar">
-            </div>
+            <div class="photo"><img src="images/oscar.jpg" alt="Oscar"></div>
         </div>
-
-    
         <div class="membre-gauche">
             <div class="photo">
                 <img src="images/adrien.jpg" alt="Adrien">
@@ -344,6 +241,7 @@
                 <img src="images/eloan_max.jpg" alt="Eloan et Max">
             </div>
         </div>
+
         <div class="centre">
             <p>
                 Et bien d’autres personnes viennent encore compléter cette équipe.<br> 
@@ -359,5 +257,3 @@
 </html>
 
 
-
- 
