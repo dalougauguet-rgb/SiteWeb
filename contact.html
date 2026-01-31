@@ -1,233 +1,208 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Les Roues de l'Espoir – Contact</title>
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <style>
-            * {
-                box-sizing: border-box;
-                font-family: 'Poppins', sans-serif;
-                box-sizing: border-box;
-            }
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les Roues de l'Espoir – Contact</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
 
-            /* FOND */
-            body {
-                margin: 0;
-                font-family: 'Montserrat', sans-serif;
-                font-weight: 300; /* Light pour le texte */
-                margin: 0;
-                background-color: #5a3a28;
-                color: #3a2a20;
-            }
-            /*STRUCTURE */
-            .page-contact {
-                min-height: 100vh;
-                display: flex;
-                justify-content: center;
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%; /* prend toute la hauteur de l'iframe */
+            font-family: 'Montserrat', sans-serif;
+            background-color: #5a3a28; /* marron du fond */
+            color: #3a2a20;
+        }
+
+        main, .page-contact {
+            min-height: 100%; /* contenu remplit tout l'espace */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 60px;
+            padding: 40px;
+            flex-wrap: wrap;
+        }
+
+        .carte-contact {
+            background-color: #f4eadf;
+            border-radius: 22px;
+            padding: 35px 40px;
+            width: 420px;
+            max-width: 90%;
+            height: auto;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+        }
+
+        .carte-contact h1 {
+            margin: 0 0 25px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .identification {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 18px;
+        }
+
+        label {
+            font-size: 14px;
+            margin-bottom: 6px;
+        }
+
+        input, textarea {
+            padding: 12px;
+            border-radius: 12px;
+            border: 1px solid #d3c1af;
+            background-color: #fff;
+            font-size: 14px;
+        }
+
+        textarea {
+            min-height: 90px;
+            max-height: 220px;
+            resize: vertical;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 12px;
+            border-radius: 14px;
+            border: none;
+            background-color: #5a3a28;
+            color: white;
+            font-size: 15px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: 0.25s ease;
+        }
+
+        button:hover {
+            background-color: #7a4b34;
+        }
+
+        .socials {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .socials a {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: #f4eadf;
+            font-weight: 500;
+        }
+
+        .socials img {
+            width: 34px;
+            height: 34px;
+        }
+
+        /* 📱 RESPONSIVE */
+        @media (max-width: 1024px) {
+            main { gap: 40px; }
+            .carte-contact { padding: 30px 35px; }
+            input, textarea { font-size: 13px; }
+            button { font-size: 14px; }
+        }
+
+        @media (max-width: 768px) {
+            main {
+                flex-direction: column;
                 align-items: center;
-                gap: 60px;
-                padding: 40px;
-                flex-wrap: wrap;
+                gap: 30px;
             }
-
             .carte-contact {
-                background-color: #f4eadf;
-                border-radius: 22px;
-                padding: 35px 40px;
-                width: 420px;
-                max-width: 90%;
-                height: auto;
-                box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+                width: 100%;
+                max-width: 400px;
+                padding: 25px;
             }
-
-            .carte-contact h1 {
-                margin: 0 0 25px;
-                text-align: center;
-                font-weight: 600;
-                font-family: 'Montserrat', sans-serif;
-                font-weight: 600; 
-            }
-
-            .identification {
-                display: flex;
-                flex-direction: column;
-                margin-bottom: 18px;
-            }
-
-            label {
-                font-size: 14px;
-                margin-bottom: 6px;
-            }
-
-            input,textarea {
-                padding: 12px;
-                border-radius: 12px;
-                border: 1px solid #d3c1af;
-                background-color: #fff;
-                font-size: 14px;
-            }
-
-            textarea {
-                min-height: 90px;
-                max-height: 220px;
-                resize: vertical; /* l’utilisateur peut agrandir */
-            }
-
-            button {
-                margin-top: 10px;
-                padding: 12px;
-                border-radius: 14px;
-                border: none;
-                background-color: #5a3a28;
-                color: white;
-                font-size: 15px;
-                font-weight: 500;
-                cursor: pointer;
-                transition: 0.25s ease;
-            }
-
-            button:hover {
-                background-color: #7a4b34;
-            }
-
             .socials {
-                display: flex;
+                width: 100%;      
                 flex-direction: column;
+                align-items: center;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
                 gap: 18px;
             }
-
             .socials a {
-                display: flex;
-                align-items: center;
-                gap: 12px;
-                text-decoration: none;
-                color: #f4eadf;
-                font-weight: 500;
+                font-size: 14px;
+                justify-content: center;
             }
-
             .socials img {
-                width: 34px;
-                height: 34px;
+                width: 28px;
+                height: 28px;
             }
+        }
 
-            /* 📱 RESPONSIVE */
-    
-            @media (max-width: 1024px) {
-                .page-contact {
-                    gap: 40px;
-                }
-                .carte-contact {
-                    padding: 30px 35px;
-                }
-                input, textarea {
-                    font-size: 13px;
-                }
-                 
-                button {
-                    font-size: 14px;
-                }
+        @media (max-width: 480px) {
+            .carte-contact {
+                padding: 20px;
             }
-            @media (max-width: 768px) {
-                .page-contact {
-                    flex-direction: column;
-                    align-items: center;
-                    gap: 30px;
-                }
-                .carte-contact {
-                    width: 100%;
-                    max-width: 400px;
-                    padding: 25px;
-                }
-                .socials {
-                    width: 100%;      
-                    flex-direction: column;
-                    align-items: center;
-                    display: flex;
-                    flex-wrap: wrap;
-                    justify-content: center;
-                    gap: 18px;
-                }
-                .socials a {
-                    font-size: 14px;
-                    justify-content: center;
-                }
-                .socials img {
-                    width: 28px;
-                    height: 28px;
-                }
+            input, textarea {
+                font-size: 12px;
+                padding: 10px;
             }
-             @media (max-width: 480px) {
-                .carte-contact {
-                    padding: 20px;
-                }
-                input, textarea {
-                    font-size: 12px;
-                    padding: 10px;
-                }
-                button {
-                    font-size: 13px;
-                    padding: 10px;
-                }
-                .socials a {
-                    font-size: 12px;
-                }
-                 .socials img {
-                    width: 24px;
-                    height: 24px;
-                }
+            button {
+                font-size: 13px;
+                padding: 10px;
             }
-        </style>
+            .socials a {
+                font-size: 12px;
+            }
+            .socials img {
+                width: 24px;
+                height: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="page-contact">
+        <section class="carte-contact">
+            <h1>CONTACTEZ-NOUS</h1>
+            <form action="https://formspree.io/f/XXXXX" method="POST">
+                <div class="identification">
+                    <label for="name">Nom</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="identification">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="identification">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" placeholder="Votre message..." required></textarea>
+                </div>
+                <button type="submit">Envoyer</button>
+            </form>
+        </section>
 
-        <main class="page-contact">
-
-            <section class="carte-contact">
-                <h1>CONTACTEZ-NOUS</h1>
-
-                <form action="https://formspree.io/f/XXXXX" method="POST">
-
-                    <div class="identification">
-                        <label for="name">Nom</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-
-                    <div class="identification">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-
-                    <div class="identification">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" placeholder="Votre message..." required></textarea>
-                    </div>
-
-                    <button type="submit">Envoyer</button>
-                </form>
-            </section>
-
-            <aside class="socials">
-                <a href="https://www.instagram.com/les.roues.de.lespoir/" target="icone">
-                    <img src="images/insta.png" alt="Instagram">
-                    <span>Instagram</span>
-                </a>
-
-                <a href="https://www.tiktok.com/@les.roues.de.lespoir?_r=1&_t=ZN-93UEHyJTZ6E" target="icone">
-                    <img src="images/tiktok.png" alt="TikTok">
-                    <span>TikTok</span>
-                </a>
-
-                <a href="https://www.facebook.com/people/Lesroues-Delespoir/61574372593639/#" target="icone">
-                    <img src="images/facebook.png" alt="Facebook">
-                    <span>Facebook</span>
-                </a>
-            </aside>
-
-        </main>
-
-    </body>
+        <aside class="socials">
+            <a href="https://www.instagram.com/les.roues.de.lespoir/" target="icone">
+                <img src="images/insta.png" alt="Instagram">
+                <span>Instagram</span>
+            </a>
+            <a href="https://www.tiktok.com/@les.roues.de.lespoir?_r=1&_t=ZN-93UEHyJTZ6E" target="icone">
+                <img src="images/tiktok.png" alt="TikTok">
+                <span>TikTok</span>
+            </a>
+            <a href="https://www.facebook.com/people/Lesroues-Delespoir/61574372593639/#" target="icone">
+                <img src="images/facebook.png" alt="Facebook">
+                <span>Facebook</span>
+            </a>
+        </aside>
+    </main>
+</body>
 </html>
 
