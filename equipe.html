@@ -28,15 +28,16 @@ body { font-family:'Montserrat',sans-serif; min-height:100vh; background-color:#
 }
 
 .membre-gauche, .membre-droite, .centre {
-    width: 90%;
-    max-width: 700px;
+    width: 100%;
+    max-width: 600px;  /* largeur max comme contact */
     margin: 20px auto;
     background-color: #f5f1e6;
     border-radius: 30px;
     padding: 20px;
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 15px;  /* un peu moins de gap pour que ce soit contenu */
+    flex-wrap: wrap; /* permet de descendre la photo si écran trop petit */
 }
 
 .membre-gauche { flex-direction: row; }
@@ -92,17 +93,19 @@ body { font-family:'Montserrat',sans-serif; min-height:100vh; background-color:#
     .centre p { font-size:18px; }
 }
 
-@media (max-width:768px){
+@media (max-width: 768px) {
     .membre-gauche, .membre-droite, .centre {
         flex-direction: column;
         text-align: center;
+        padding: 15px;
+        gap: 10px;
     }
-    .photo { width:120px; height:120px; }
-    .content h2 { font-size:26px; }
-    .content h3 { font-size:15px; }
-    .content p { font-size:14px; }
-    .centre p { font-size:16px; }
+    .photo { width: 120px; height: 120px; }
+    .content h2 { font-size: 26px; }
+    .content h3 { font-size: 15px; }
+    .content p { font-size: 14px; }
 }
+
 
 @media (max-width:480px){
     .titre { font-size:36px; margin:40px 15px; }
@@ -284,6 +287,7 @@ body { font-family:'Montserrat',sans-serif; min-height:100vh; background-color:#
 </div>
 </body>
 </html>
+
 
 
 
