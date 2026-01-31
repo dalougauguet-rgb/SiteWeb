@@ -31,9 +31,10 @@ body {
     gap:40px;
     padding-bottom:80px;
     width:100%;
-    max-width: 900px; /* largeur globale pour centrer tous les membres */
+    max-width: 900px;
 }
 
+/* Membres */
 .membre-gauche, .membre-droite, .centre {
     width: 100%;
     background-color: #f5f1e6;
@@ -42,74 +43,51 @@ body {
     display: flex;
     align-items: center;
     gap: 20px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     transition: transform 0.5s ease;
 }
-    .membre-gauche, .membre-droite {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    flex-wrap: nowrap; /* empêche l'image de passer au-dessus du texte */
-}
 
-/* Décalage horizontal */
+/* Décalage rectangles */
 .membre-gauche { 
-    flex-direction: row; /* image à gauche, texte à droite */
-    transform: translateX(-100px);
+    flex-direction: row;
+    transform: translateX(-60px);
+}
+.membre-droite { 
+    flex-direction: row;
+    transform: translateX(60px);
 }
 
-.membre-droite { 
-    flex-direction: row-reverse; /* image à droite, texte à gauche */
-    transform: translateX(100px);
-}
+/* Inverser l'image à droite pour membre-droite */
+.membre-droite .photo { order: 2; }
+.membre-droite .content { order: 1; }
+
+/* Section centrale */
 .centre { 
     flex-direction: row; 
     justify-content:center; 
     text-align:center; 
 }
 
+/* Photo */
 .photo {
     width: 180px;
     height: 180px;
-    background-color: #5bc0eb;
-    border-radius:10px;
-    overflow:hidden;
-    flex-shrink:0;
+    flex-shrink: 0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-.photo img { width:100%; height:100%; object-fit:cover; }
-
-.content {
-    flex: 1; /* prend tout l'espace disponible à côté de la photo */
-}
-
-
-.content h2 {
-    margin:0;
-    font-family:'Bebas Neue',sans-serif;
-    font-size:36px;
-    letter-spacing:1px;
-    color:#5a3b2e;
-}
-.content h3 {
-    margin:5px 0 15px;
-    font-weight:600;
-    font-size:18px;
-    color:#5a3b2e;
-}
-.content p {
-    margin:0;
-    font-weight:300;
-    font-size:16px;
-    line-height:1.6;
-    color:#4a4a4a;
-}
-.centre p {
-    margin:5px 0 15px;
-    font-weight:600;
-    font-size:20px;
-    color:#5a3b2e;
-}
+/* Texte */
+.content { flex: 1; }
+.content h2 { margin:0; font-family:'Bebas Neue',sans-serif; font-size:36px; letter-spacing:1px; color:#5a3b2e; }
+.content h3 { margin:5px 0 15px; font-weight:600; font-size:18px; color:#5a3b2e; }
+.content p { margin:0; font-weight:300; font-size:16px; line-height:1.6; color:#4a4a4a; }
+.centre p { margin:5px 0 15px; font-weight:600; font-size:20px; color:#5a3b2e; }
 
 /* RESPONSIVE */
 @media (max-width:1024px){
@@ -123,20 +101,11 @@ body {
 
 @media (max-width: 768px) {
     .membre-gauche, .membre-droite, .centre {
-        flex-direction: column; /* tout devient vertical */
-        text-align: center;
-        transform: translateX(0); /* on annule le décalage */
-        padding: 15px;
-        gap: 15px;
-    }
-   
-    .membre-gauche, .membre-droite {
         flex-direction: column;
-        flex-wrap: wrap;
+        transform: translateX(0);
         text-align: center;
     }
-
-
+    .membre-droite .photo, .membre-gauche .photo { order: 0; }
     .photo { width:120px; height:120px; }
     .content h2 { font-size:26px; }
     .content h3 { font-size:15px; }
@@ -157,7 +126,6 @@ body {
 <body>
 <h1 class="titre">Notre équipe</h1>
 <div class="equipe">
-    <!-- Exemple d'un membre -->
     <div class="membre-gauche">
         <div class="photo"><img src="images/nathan.jpg" alt="Nathan"></div>
         <div class="content">
@@ -175,38 +143,25 @@ body {
         </div>
         <div class="photo"><img src="images/oscar.jpg" alt="Oscar"></div>
     </div>
+
     <div class="membre-gauche">
-            <div class="photo">
-                <img src="images/adrien.jpg" alt="Adrien">
-            </div>
-            <div class="content">
-                <h2>Adrien</h2>
-                <h3>Vice-président / CM</h3>
-                <p>
-                    "Passionné de sport et de voyages, le sport est pour moi une école de la vie.
-                    Ce défi représente énormément sur le plan sportif et humain,
-                    surtout lorsqu’il est réalisé avec mes amis."
-                </p>
-            </div>
+        <div class="photo"><img src="images/adrien.jpg" alt="Adrien"></div>
+        <div class="content">
+            <h2>Adrien</h2>
+            <h3>Vice-président / CM</h3>
+            <p>"Passionné de sport et de voyages, le sport est pour moi une école de la vie. Ce défi représente énormément sur le plan sportif et humain, surtout lorsqu’il est réalisé avec mes amis."</p>
         </div>
+    </div>
 
-   
-        <div class="membre-droite">
-            <div class="content">
-                <h2>Timéo</h2>
-                <h3>Trésorier</h3>
-                <p>
-                    "Je pratique l’escrime et j’utilise le vélo au quotidien.
-                    Orléans–Brest est un défi physique mais surtout un moyen
-                    de vivre une aventure humaine forte entre amis."
-                </p>
-            </div>
-            <div class="photo">
-                <img src="images/timeo.jpg" alt="Timéo">
-            </div>
+    <div class="membre-droite">
+        <div class="content">
+            <h2>Timéo</h2>
+            <h3>Trésorier</h3>
+            <p>"Je pratique l’escrime et j’utilise le vélo au quotidien. Orléans–Brest est un défi physique mais surtout un moyen de vivre une aventure humaine forte entre amis."</p>
         </div>
-
-        <div class="membre-gauche">
+        <div class="photo"><img src="images/timeo.jpg" alt="Timéo"></div>
+    </div>
+    <div class="membre-gauche">
             <div class="photo">
                 <img src="images/hadrien.jpg" alt="Hadrien">
             </div>
@@ -296,19 +251,17 @@ body {
             </div>
         </div>
 
-    <!-- répète le même pattern pour tous les membres -->
-
     <div class="centre">
-        <p>
-            Et bien d’autres personnes viennent encore compléter cette équipe.<br>
-            Nous pensons tout particulièrement à nos amis et familles qui nous soutiennent chaque jour.<br>
-            Mais nous pensons aussi à vous, à tous ceux qui nous accompagnez.<br>
-            <br>Les Roues de l’Espoir, ce ne sont pas seulement dix garçons qui relèvent des défis, c’est aussi <b>vous tous</b>, engagés à nos côtés dans cette noble cause : <b>la lutte contre le cancer.</b>
-        </p>
+        <p>Et bien d’autres personnes viennent encore compléter cette équipe.<br>
+        Nous pensons tout particulièrement à nos amis et familles qui nous soutiennent chaque jour.<br>
+        Mais nous pensons aussi à vous, à tous ceux qui nous accompagnez.<br>
+        <br>Les Roues de l’Espoir, ce ne sont pas seulement dix garçons qui relèvent des défis, c’est aussi <b>vous tous</b>, engagés à nos côtés dans cette noble cause : <b>la lutte contre le cancer.</b></p>
     </div>
 </div>
 </body>
 </html>
+
+
 
 
 
