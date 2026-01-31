@@ -7,7 +7,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
 html, body { margin:0; padding:0; height:100%; }
-body { font-family:'Montserrat',sans-serif; min-height:100vh; background-color:#6b4a3a; display:flex; flex-direction:column; }
+body {
+    font-family:'Montserrat',sans-serif;
+    min-height:100vh;
+    background-color:#6b4a3a;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
 
 .titre {
     text-align:center;
@@ -24,25 +31,23 @@ body { font-family:'Montserrat',sans-serif; min-height:100vh; background-color:#
     gap:40px;
     padding-bottom:80px;
     width:100%;
-    align-items:center;
+    max-width: 900px; /* largeur globale pour centrer tous les membres */
 }
 
 .membre-gauche, .membre-droite, .centre {
     width: 100%;
-    max-width: 600px;  /* largeur max comme contact */
-    margin: 20px auto;
     background-color: #f5f1e6;
     border-radius: 30px;
     padding: 20px;
     display: flex;
     align-items: center;
-    gap: 15px;  /* un peu moins de gap pour que ce soit contenu */
-    flex-wrap: wrap; /* permet de descendre la photo si écran trop petit */
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
 .membre-gauche { flex-direction: row; }
 .membre-droite { flex-direction: row-reverse; }
-.centre { flex-direction: row; justify-content:center; }
+.centre { flex-direction: row; justify-content:center; text-align:center; }
 
 .photo {
     width: 180px;
@@ -85,7 +90,6 @@ body { font-family:'Montserrat',sans-serif; min-height:100vh; background-color:#
 /* RESPONSIVE */
 @media (max-width:1024px){
     .titre { font-size:50px; }
-    .membre-gauche, .membre-droite, .centre { width:95%; padding:25px; }
     .photo { width:150px; height:150px; }
     .content h2 { font-size:30px; }
     .content h3 { font-size:16px; }
@@ -98,14 +102,14 @@ body { font-family:'Montserrat',sans-serif; min-height:100vh; background-color:#
         flex-direction: column;
         text-align: center;
         padding: 15px;
-        gap: 10px;
+        gap: 15px;
     }
-    .photo { width: 120px; height: 120px; }
-    .content h2 { font-size: 26px; }
-    .content h3 { font-size: 15px; }
-    .content p { font-size: 14px; }
+    .photo { width:120px; height:120px; }
+    .content h2 { font-size:26px; }
+    .content h3 { font-size:15px; }
+    .content p { font-size:14px; }
+    .centre p { font-size:16px; }
 }
-
 
 @media (max-width:480px){
     .titre { font-size:36px; margin:40px 15px; }
@@ -120,38 +124,25 @@ body { font-family:'Montserrat',sans-serif; min-height:100vh; background-color:#
 <body>
 <h1 class="titre">Notre équipe</h1>
 <div class="equipe">
+    <!-- Exemple d'un membre -->
     <div class="membre-gauche">
-            <div class="photo">
-                <img src="images/nathan.jpg" alt="Nathan">
-            </div>
-            <div class="content">
-                <h2>Nathan</h2>
-                <h3>Président <span>(Les Roues de l’Espoir)</span></h3>
-                <p>
-                    "Moi c'est Nathan Troussard, je suis lycéen en terminale et triathlète à mes heures perdues.
-                    Le vélo est plus qu'un sport pour moi, c'est un moyen d'être libre.
-                    Je m’occupe principalement de la recherche de financements pour le projet."
-                </p>
-            </div>
+        <div class="photo"><img src="images/nathan.jpg" alt="Nathan"></div>
+        <div class="content">
+            <h2>Nathan</h2>
+            <h3>Président <span>(Les Roues de l’Espoir)</span></h3>
+            <p>"Moi c'est Nathan Troussard, je suis lycéen en terminale et triathlète à mes heures perdues. Le vélo est plus qu'un sport pour moi, c'est un moyen d'être libre. Je m’occupe principalement de la recherche de financements pour le projet."</p>
         </div>
+    </div>
 
-        <div class="membre-droite">
-            <div class="content">
-                <h2>Oscar</h2>
-                <h3>Secrétaire</h3>
-                <p>
-                    "Moi je m'appelle Oscar et ce que j'aime avant tout c'est créer des souvenirs.
-                    Ce projet est né de notre envie de repousser nos limites ensemble
-                    et de vivre une aventure humaine forte."
-                </p>
-            </div>
-            <div class="photo">
-                <img src="images/oscar.jpg" alt="Oscar">
-            </div>
+    <div class="membre-droite">
+        <div class="content">
+            <h2>Oscar</h2>
+            <h3>Secrétaire</h3>
+            <p>"Moi je m'appelle Oscar et ce que j'aime avant tout c'est créer des souvenirs. Ce projet est né de notre envie de repousser nos limites ensemble et de vivre une aventure humaine forte."</p>
         </div>
-
-    
-        <div class="membre-gauche">
+        <div class="photo"><img src="images/oscar.jpg" alt="Oscar"></div>
+    </div>
+    <div class="membre-gauche">
             <div class="photo">
                 <img src="images/adrien.jpg" alt="Adrien">
             </div>
@@ -271,22 +262,22 @@ body { font-family:'Montserrat',sans-serif; min-height:100vh; background-color:#
                 <img src="images/eloan_max.jpg" alt="Eloan et Max">
             </div>
         </div>
-    <!-- Exemple de membre -->
-    
+
+    <!-- répète le même pattern pour tous les membres -->
 
     <div class="centre">
         <p>
             Et bien d’autres personnes viennent encore compléter cette équipe.<br>
-            Nous pensons tout particulièrement à nos amis les plus proches et à nos familles,
-            qui nous soutiennent et nous motivent chaque jour.<br>
-            Mais nous pensons aussi à vous, à vous tous qui nous accompagnez, nous soutenez.<br>
-            <br>Les Roues de l’Espoir, ce ne sont pas seulement dix garçons qui relèvent des défis, 
-            c’est aussi <b>vous tous</b>, engagés à nos côtés dans cette noble cause : <b>la lutte contre le cancer......</b>
+            Nous pensons tout particulièrement à nos amis et familles qui nous soutiennent chaque jour.<br>
+            Mais nous pensons aussi à vous, à tous ceux qui nous accompagnez.<br>
+            <br>Les Roues de l’Espoir, ce ne sont pas seulement dix garçons qui relèvent des défis, c’est aussi <b>vous tous</b>, engagés à nos côtés dans cette noble cause : <b>la lutte contre le cancer.</b>
         </p>
     </div>
 </div>
 </body>
 </html>
+
+
 
 
 
