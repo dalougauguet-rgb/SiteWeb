@@ -22,11 +22,14 @@
             letter-spacing: 1px; 
             display: flex;
             flex-direction: column;
+            height: 100vh;
+            overflow: hidden;
         }
 
         header {
             background-color: #f4eadf;
             padding: 10px 20px;
+            z-index: 1002;
         }
 
         .navbar {
@@ -108,57 +111,67 @@
             display: block;
         }
 
+        main {
+            flex: 1;
+            min-height: 0; /* très important pour mobile */
+        }
+
         iframe {
             flex: 1;
             width: 100%;
             border: none;
-            min-height: 100vh;
+            min-height: 0;
+        }
+
+        /* BOUTON HAMBURGER ET MENU MOBILE */
+        .hamburger {
+            display: none; /* caché sur desktop */
+            flex-direction: column;
+            gap: 5px;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 1003;
+            position: fixed;
+            top: 15px;
+            right: 20px;
+        }
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: #5a3a28;
+        }
+
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%; /* caché par défaut */
+            width: 50%; /* moitié de page */
+            height: 100%;
+            background: rgba(244, 234, 223, 0.95); /* léger transparent */
+            display: flex;
+            flex-direction: column;
+            padding: 50px 20px;
+            gap: 20px;
+            transition: right 0.3s ease;
+            z-index: 1000;
+        }
+
+        .mobile-menu a {
+            text-decoration: none;
+            font-weight: bold;
+            color: #5a3a28;
+            font-size: 18px;
         }
 
         /* 📱 RESPONSIVE */
         @media (max-width: 768px) {
 
+            .hamburger {
+                display: flex;
+            }
+
             .navbar {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            nav ul {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .logo img {
-                height: 55px;
-                margin-bottom: 10px;
-            }
-
-            .menu {
-                flex-direction: column;
-                width: 100%;
-                gap: 10px;
-                margin-left: 0;
-                align-items: center;
-            }
-
-            .menu li {
-                width: 100%;
-                font-size: 16px;
-            }
-
-            .menu a {
-                display: block;
-                width: 100%;
-                font-size: 16px;
-            }
-
-            .dropdown-menu {
-                position: static;
-                background-color: #e0d6c9;
-            }
-
-            .dropdown-menu a {
-                color: #5a3a28;
+                display: none; /* cacher le menu desktop */
             }
         }
     </style>
@@ -193,13 +206,43 @@
         </nav>
     </header> 
 
+    <!-- BOUTON HAMBURGER ET MENU MOBILE -->
+    <div class="hamburger" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="home.html" target="onglet">Home</a>
+        <a href="histoire.html" target="onglet">Notre histoire</a>
+        <a href="equipe.html" target="onglet">Notre équipe</a>
+        <a href="sponsor.html" target="onglet">Nos sponsors</a>
+        <a href="Brest.html" target="onglet">Orléans/Brest</a>
+        <a href="soon.html" target="onglet">Soon...</a>
+        <a href="blog.html" target="onglet">Blog</a>
+        <a href="contact.html" target="onglet">Contact</a>
+        <a href="#" target="onglet">Connexion</a>
+    </div>
+
     <main>
         <iframe
             name="onglet"
-            src="home.html"
-            width="100%"
-            height="100vh">
+            src="home.html">
         </iframe>
     </main>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('mobileMenu');
+            if(menu.style.right === "0px") {
+                menu.style.right = "-100%";
+            } else {
+                menu.style.right = "0px";
+            }
+        }
+    </script>
 </body>
 </html>
+
+
