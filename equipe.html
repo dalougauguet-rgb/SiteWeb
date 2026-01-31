@@ -43,21 +43,22 @@ body {
     display: flex;
     align-items: center;
     gap: 20px;
-    flex-wrap: nowrap;
+    flex-wrap: nowrap; /* empêche image au-dessus du texte */
     transition: transform 0.5s ease;
+    max-width: 100%; /* évite débordement */
 }
 
-/* Décalage rectangles */
+/* Décalage horizontal des rectangles */
 .membre-gauche { 
-    flex-direction: row;
-    transform: translateX(-60px);
+    flex-direction: row; /* image à gauche */
+    transform: translateX(-30px);
 }
 .membre-droite { 
-    flex-direction: row;
-    transform: translateX(60px);
+    flex-direction: row; /* image à droite */
+    transform: translateX(30px);
 }
 
-/* Inverser l'image à droite pour membre-droite */
+/* Inverser image pour membre-droite */
 .membre-droite .photo { order: 2; }
 .membre-droite .content { order: 1; }
 
@@ -83,7 +84,10 @@ body {
 }
 
 /* Texte */
-.content { flex: 1; }
+.content {
+    flex: 1;
+    min-width: 0; /* permet au texte de se réduire sans pousser l'image */
+}
 .content h2 { margin:0; font-family:'Bebas Neue',sans-serif; font-size:36px; letter-spacing:1px; color:#5a3b2e; }
 .content h3 { margin:5px 0 15px; font-weight:600; font-size:18px; color:#5a3b2e; }
 .content p { margin:0; font-weight:300; font-size:16px; line-height:1.6; color:#4a4a4a; }
@@ -105,7 +109,7 @@ body {
         transform: translateX(0);
         text-align: center;
     }
-    .membre-droite .photo, .membre-gauche .photo { order: 0; }
+    .membre-droite .photo, .membre-gauche .photo { order: 0; } /* annule l'ordre sur mobile */
     .photo { width:120px; height:120px; }
     .content h2 { font-size:26px; }
     .content h3 { font-size:15px; }
@@ -126,6 +130,7 @@ body {
 <body>
 <h1 class="titre">Notre équipe</h1>
 <div class="equipe">
+
     <div class="membre-gauche">
         <div class="photo"><img src="images/nathan.jpg" alt="Nathan"></div>
         <div class="content">
@@ -257,9 +262,12 @@ body {
         Mais nous pensons aussi à vous, à tous ceux qui nous accompagnez.<br>
         <br>Les Roues de l’Espoir, ce ne sont pas seulement dix garçons qui relèvent des défis, c’est aussi <b>vous tous</b>, engagés à nos côtés dans cette noble cause : <b>la lutte contre le cancer.</b></p>
     </div>
+
 </div>
 </body>
 </html>
+
+
 
 
 
