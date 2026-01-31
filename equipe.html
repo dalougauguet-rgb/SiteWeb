@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notre Équipe – Les Roues de l'Espoir</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    
+</head>
+
+<body>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #6b4a3a; /* marron du fond */
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .titre {
+            text-align: center;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 64px;
+            color: #f5f1e6;
+            letter-spacing: 1px;
+            margin: 60px 20px 60px 20px;
+        }
+
+        .equipe {
+            display: flex;
+            flex-direction: column;
+            gap: 60px;
+            padding-bottom: 80px;
+        }
+
+        .membre-gauche,.membre-droite, .centre {
+            max-width: 900px;
+            margin: auto;
+            background-color: #f5f1e6;
+            border-radius: 30px;
+            padding: 30px;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+
+        .membre-gauche {
+            flex-direction: row;
+            transform: translateX(-100px);
+        }
+
+        .membre-droite {
+            flex-direction: row-reverse;
+            transform: translateX(100px);
+        }
+
+        .photo {
+            width: 180px;
+            height: 180px;
+            background-color: #5bc0eb; /* bleu du croquis */
+            border-radius: 10px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .content h2 {
+            margin: 0;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 36px;
+            letter-spacing: 1px;
+            color: #5a3b2e;
+        }
+
+        .content h3 {
+            margin: 5px 0 15px;
+            font-weight: 600; /* Montserrat semi-bold */
+            font-size: 18px;
+            color: #5a3b2e;
+        }
+
+        .content p {
+            margin: 0;
+            font-weight: 300; /* Montserrat Light */
+            font-size: 16px;
+            line-height: 1.6;
+            color: #4a4a4a;
+        }
+
+        .centre p{
+            margin: 5px 0 15px;
+            font-weight: 600; /* Montserrat semi-bold */
+            font-size: 20px;
+            color: #5a3b2e;
+
+        }
+
+        .centre {
+            flex-direction: row;
+        }
+
+        /* 📱 RESPONSIVE */
+    
+        @media (max-width: 1024px) {
+            .titre {
+                font-size: 50px;
+            }
+            .membre-gauche, .membre-droite, .centre {
+                max-width: 80%;
+                padding: 25px;
+            }
+            .photo {
+                width: 150px;
+                height: 150px;
+            }
+            .content h2 {
+                font-size: 30px;
+            }
+            .content h3 {
+                font-size: 16px;
+            }
+            .content p {
+                font-size: 15px;
+            }
+            .centre p {
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .membre-gauche,
+            .membre-droite {
+                flex-direction: column;
+                text-align: center;
+                transform: none;
+            }
+
+            .photo {
+                width: 120px;
+                height: 120px;
+            }
+            .content h2 {
+                font-size: 26px;
+            }
+            .content h3 {
+                font-size: 15px;
+            }
+            .content p {
+                font-size: 14px;
+            }
+            .centre p {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .titre {
+                font-size: 36px;
+                margin: 40px 15px 40px 15px;
+            }
+            .photo {
+                width: 100px;
+                height: 100px;
+            }
+            .content h2 {
+                font-size: 22px;
+            }
+            .content h3 {
+                font-size: 14px;
+            }
+            .content p {
+                font-size: 13px;
+            }
+            .centre p {
+                font-size: 14px;
+            }
+        }
+        
+    </style>
+
+    <h1 class="titre">Notre équipe</h1>
+
+    <div class="equipe">
+
+        <div class="membre-gauche">
+            <div class="photo">
+                <img src="images/nathan.jpg" alt="Nathan">
+            </div>
+            <div class="content">
+                <h2>Nathan</h2>
+                <h3>Président <span>(Les Roues de l’Espoir)</span></h3>
+                <p>
+                    "Moi c'est Nathan Troussard, je suis lycéen en terminale et triathlète à mes heures perdues.
+                    Le vélo est plus qu'un sport pour moi, c'est un moyen d'être libre.
+                    Je m’occupe principalement de la recherche de financements pour le projet."
+                </p>
+            </div>
+        </div>
+
+        <div class="membre-droite">
+            <div class="content">
+                <h2>Oscar</h2>
+                <h3>Secrétaire</h3>
+                <p>
+                    "Moi je m'appelle Oscar et ce que j'aime avant tout c'est créer des souvenirs.
+                    Ce projet est né de notre envie de repousser nos limites ensemble
+                    et de vivre une aventure humaine forte."
+                </p>
+            </div>
+            <div class="photo">
+                <img src="images/oscar.jpg" alt="Oscar">
+            </div>
+        </div>
+
+    
+        <div class="membre-gauche">
+            <div class="photo">
+                <img src="images/adrien.jpg" alt="Adrien">
+            </div>
+            <div class="content">
+                <h2>Adrien</h2>
+                <h3>Vice-président / CM</h3>
+                <p>
+                    "Passionné de sport et de voyages, le sport est pour moi une école de la vie.
+                    Ce défi représente énormément sur le plan sportif et humain,
+                    surtout lorsqu’il est réalisé avec mes amis."
+                </p>
+            </div>
+        </div>
+
+   
+        <div class="membre-droite">
+            <div class="content">
+                <h2>Timéo</h2>
+                <h3>Trésorier</h3>
+                <p>
+                    "Je pratique l’escrime et j’utilise le vélo au quotidien.
+                    Orléans–Brest est un défi physique mais surtout un moyen
+                    de vivre une aventure humaine forte entre amis."
+                </p>
+            </div>
+            <div class="photo">
+                <img src="images/timeo.jpg" alt="Timéo">
+            </div>
+        </div>
+
+        <div class="membre-gauche">
+            <div class="photo">
+                <img src="images/hadrien.jpg" alt="Hadrien">
+            </div>
+            <div class="content">
+                <h2>Hadrien</h2>
+                <h3>Co-CM</h3>
+                <p>
+                    "Le sport, le dépassement de soi et le collectif sont au cœur de mes valeurs.
+                    Ce projet est l’occasion parfaite de me surpasser
+                    pour une cause qui me tient profondément à cœur."
+                </p>
+            </div>
+        </div>
+
+        <div class="membre-droite">
+            <div class="content">
+                <h2>Louis</h2>
+                <h3>L’expérimenté</h3>
+                <p>
+                    "Mon objectif dans la vie est d’être heureux.
+                    Ce défi est une aventure humaine forte, remplie d’émotions,
+                    que nous vivrons ensemble pour soutenir la lutte contre le cancer."
+                </p>
+            </div>
+            <div class="photo">
+                <img src="images/guiavrach.jpg" alt="Louis">
+            </div>
+        </div>
+
+        <div class="membre-gauche">
+            <div class="content">
+                <h2>Gaultier,</h2>
+                <h3>Designer/CM et photographe</h3>
+                <p>
+                    "Bonjour, Moi c'est Gaultier, et ma vie a toujours été rythmée par le sport, en particulier par courir, 
+                    sauter et lancer. Autrement dit, l'athlétisme. J'en ai pratiqué pendant six ans, depuis l'âge de 10 ans, 
+                    avec l'idée que cela me donnerait un objectif, un défi qui me pousserait à dépasser mes limites. 
+                    Aujourd'hui, même si j'ai arrêté l'athlétisme, un nouveau challenge m'attend : rallier Orléans à Brest à vélo. 
+                    Et quoi de mieux que de le faire avec des amis ? Ce projet me tient particulièrement à cœur, 
+                    car le cancer a emporté certains de mes proches. Alors, je vais me dépasser, non seulement pour moi, 
+                    mais aussi pour eux."
+                </p>
+            </div>
+            <div class="photo">
+                <img src="images/gautier.jpg" alt="Gauthier">
+            </div>
+        </div>
+
+        <div class="membre-droite">
+            <div class="content">
+                <h2>Louis (le deuxième)</h2>
+                <h3>Expert en glisse</h3>
+                <p>
+                    "Moi, c'est Louis (numéro 2), j'ai 17 ans et je suis en terminale. 
+                    J'ai rejoint ce projet pour partager cette aventure collective avec mes amis. 
+                    Le vélo est mon fidèle destrier depuis plus de 10 ans, il m'a permis de gagner en indépendance. 
+                    Mais je suis avant tout un passionné de surf et de sports de glisse. 
+                    Cette expérience me donne l'opportunité de me dépasser et de tester mes limites pour une cause qui m'est chère."
+                </p>
+            </div>
+            <div class="photo">
+                <img src="images/ferriere.jpg" alt="Ferriere">
+            </div>
+        </div>
+
+        <div class="membre-gauche">
+            <div class="content">
+                <h2>Maxime et Eloan</h2>
+                <h3>Experts en Biodiversité et Mécanique</h3>
+                <p>
+                    Maxime : "Je m'appelle Maxime Maillard et je suis en terminale. Je me suis lancé dans ce défi pour plusieurs raisons. 
+                    La première est pour me défier moi-même et tester mes limites. La deuxième raison est de créer de bons souvenirs 
+                    avec des amis et de vivre un moment inoubliable que je raconterai à mes enfants. 
+                    Enfin, la troisième raison est simplement pour soutenir la lutte contre le cancer. 
+                    J'ai toujours eu un attachement particulier pour tous les types de sport, 
+                    et le fait d'être dans la nature pendant une semaine me plaît beaucoup."<br><br>
+                    Eloan : "Moi, c'est Eloan, je suis en terminale à Pothier. J'ai développé une passion pour le vélo dans ma jeunesse,
+                    notamment pour le VTT. J'ai souvent réalisé de longs parcours dans les montagnes, 
+                    mais je n'ai pas encore eu l'occasion de faire de grandes distances en vélo de route. 
+                    C'est pourquoi je me suis porté volontaire pour ce projet, qui, d'une part, 
+                    me permettra d'acquérir une nouvelle expérience en tant que cycliste, et d'autre part, 
+                    de soutenir la lutte contre le cancer, tout en me donnant un défi qui me permettra de me dépasser."
+                </p>
+            </div>
+            <div class="photo">
+                <img src="images/eloan_max.jpg" alt="Eloan et Max">
+            </div>
+        </div>
+        <div class="centre">
+            <p>
+                Et bien d’autres personnes viennent encore compléter cette équipe.<br> 
+                Nous pensons tout particulièrement à nos amis les plus proches et à nos familles, 
+                qui nous soutiennent et nous motivent chaque jour pour mener à bien ces projets.<br>
+                Mais nous pensons aussi à vous, à vous tous qui nous accompagnez, nous soutenez en faisant des dons et en relayant notre aventure.<br>
+                <br>Les Roues de l’Espoir, ce ne sont pas seulement dix garçons qui relèvent des défis, 
+                c’est aussi <b>vous tous</b>, engagés à nos côtés dans cette noble cause : <b>la lutte contre le cancer......</b>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
+
+
+ 
